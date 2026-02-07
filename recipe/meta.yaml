@@ -1,4 +1,4 @@
-{% set version = "3.4-10" %}
+{% set version = "3.4-14" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RFOC_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RFOC/RFOC_{{ version }}.tar.gz
-  sha256: b1211db8960b482ebb516233c86b075d1a1f006a88191a72fa98babd5a8e2100
+  sha256: 6ec772785d0b37bd84d833dfb30fd39032b17d6ba5bdd4bd071f9cb5de6afb98
 
 build:
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -44,7 +44,8 @@ test:
 about:
   home: https://CRAN.R-project.org/package=RFOC
   license: GPL-2.0-or-later
-  summary: Graphics for statistics on a sphere, as applied to geological fault data, crystallography, earthquake focal mechanisms, radiation patterns, ternary plots and geographical/geological maps.  Non-double couple plotting of focal spheres and source type maps are included for statistical analysis of moment tensors.
+  summary: Graphics for statistics on a sphere, as applied to geological fault data, crystallography, earthquake focal mechanisms, radiation patterns, ternary plots and geographical/geological maps.  Non-double couple plotting of focal spheres and source type maps are included for statistical analysis of moment 
+    tensors.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
