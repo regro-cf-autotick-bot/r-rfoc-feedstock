@@ -17,24 +17,31 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-geomap
     - r-mass
     - r-rpmg
     - r-rseis
-    - r-splancs
+    - r-fields
+    - r-rpanel
   run:
     - r-base
     - r-geomap
     - r-mass
     - r-rpmg
     - r-rseis
-    - r-splancs
+    - r-fields
+    - r-rpanel
 
 test:
   commands:
@@ -47,7 +54,8 @@ about:
   summary: Graphics for statistics on a sphere, as applied to geological fault data, crystallography, earthquake focal mechanisms, radiation patterns, ternary plots and geographical/geological maps.  Non-double couple plotting of focal spheres and source type maps are included for statistical analysis of moment 
     tensors.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
